@@ -1,22 +1,21 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (true) {
-    	
+    if (receivedNumber == number) {
+        basic.showIcon(IconNames.Yes)
+    } else {
+        basic.showIcon(IconNames.No)
     }
 })
 input.onButtonPressed(Button.A, function () {
-    radio.sendNumber(number)
-    number = randint(0, 10)
-    basic.showNumber(0)
-    number.change(LedSpriteProperty.X, 1)
+    number += 1
+    basic.showNumber(number)
 })
 input.onButtonPressed(Button.B, function () {
-    radio.sendNumber(0)
-    basic.showNumber(0)
-    number.change(LedSpriteProperty.X, -1)
+    number += -1
+    basic.showNumber(number)
 })
 input.onGesture(Gesture.Shake, function () {
-    radio.sendNumber(0)
+    radio.sendNumber(number)
 })
 let number = 0
 number = 0
-radio.setGroup(number)
+radio.setGroup(1)
